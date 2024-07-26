@@ -5,10 +5,11 @@ export function isAuth(req, res, next){
     console.log(token)
     try {
         let token = req.headers["auth-token"];
-        console.log(token)
-        if (!token) {
+        console.log(token, token==null)
+        if (token==null) {
             return res.status(400).send({ response: "Authentication failed", ok:false });
         }
+        
         let result = jwt.verify(token, process.env.SECRET_KEY);
         console.log(result);
         next();
