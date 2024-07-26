@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use("/", authRouter);
 
-app.use("/property", dataRouter)
+app.use("/property", isAuth, dataRouter)
 app.listen(process.env.port, ()=>{
     console.log("server created");
 })
