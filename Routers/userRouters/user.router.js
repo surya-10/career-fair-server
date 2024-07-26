@@ -84,8 +84,9 @@ export let forgotPass = async(req, res)=>{
         return res.status(500).json({msg:"Server error", resp:false});
     }
 }
-export let verifyToken = async(req, res, next)=>{
+export let verifyToken = async(req, res)=>{
     let {id, token} = req.params;
+    
     try {
         if(!id || !token){
             return res.status(400).json({response:"invalid token or id", ok:false});
