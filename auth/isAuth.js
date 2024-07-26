@@ -10,7 +10,7 @@ export function isAuth(req, res, next){
             return res.status(400).send({ response: "Authentication failed", ok:false });
         }
         
-        let result = jwt.verify(token, process.env.SECRET_KEY);
+        let result = jwt.verify(token, process.env.secret_key);
         console.log(result);
         next();
     } catch (error) {
